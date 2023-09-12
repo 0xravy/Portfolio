@@ -1,0 +1,15 @@
+%load {
+    @apply w-full h-screen fixed top-0 z-30 bg-[#000] flex flex-col gap-10 justify-center items-center;
+
+    div {
+        @apply  absolute bottom-[30%] flex justify-center w-full;
+        span {
+            font-size: 1.5rem;
+            color: gray;
+        }
+    }
+    span {   
+        @apply text-[1.5rem] sm:text-[3rem] text-[#00ff00] font-mono; 
+    }
+
+}

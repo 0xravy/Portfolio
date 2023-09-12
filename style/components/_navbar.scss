@@ -1,0 +1,34 @@
+%navbar {
+    @apply w-full h-full absolute sm:relative sm:h-24 hidden lg:flex flex-col sm:flex-row text-[2rem] items-center justify-start gap-16;
+
+    .item {
+        text-transform: capitalize;
+        text-decoration: none;
+        color: inherit;
+        line-height: 1;
+        background: linear-gradient(0deg, slateblue, slateblue) no-repeat right bottom / 0 var(--bg-h);
+        transition: background-size 350ms;
+        --bg-h: 100%;
+
+        &:where(:hover, :focus-visible) {
+            background-size: 100% var(--bg-h);
+            background-position-x: left;
+        }
+        &.underline {
+            padding-bottom: 7px;
+            --bg-h: 3px;
+        }
+    }
+
+    .theme {
+        @apply w-[60%] h-full relative;
+
+        .none {
+            display: none !important;
+        }
+
+        .theme-btn {
+            @apply w-24 h-24 flex justify-center items-center right-0 p-6 absolute border-none outline-none;
+        }
+    }
+}

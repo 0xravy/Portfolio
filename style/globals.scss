@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Roboto:ital,wght@1,300&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed); // font-family: 'Roboto Condensed', sans-serif
+// font-family: 'Fira Code', monospace;
+// font-family: 'Roboto', sans-serif;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// bg theme color
+.bg-theme {
+    @apply bg-light-bg  dark:bg-dark-bg;
+}
+.zbg-theme {
+    @apply bg-light-fg  dark:bg-dark-fg;
+}
+// fg theme color
+.fg-theme {
+    @apply text-light-fg dark:text-dark-fg;
+}
+
+.zfg-theme {
+    @apply text-light-bg dark:text-dark-bg;
+}
+
+.lanim {
+    --t: 2s;
+    -webkit-transition: var(--t);
+    -moz-transition: var(--t);
+    -ms-transition: var(--t);
+    -o-transition: var(--t);
+    transition: var(--t);
+}
+
+.unshow {
+    @apply opacity-0 lanim;
+    animation-play-state: paused;
+}
+.show {
+    @apply opacity-100 lanim;
+    animation-play-state: running;
+}
+
+// components
+@import "./components/body";
+@import "./components/navbar";
+@import "./components/mobile_nav";
+@import "./components/page";
+@import "./components/load";
+// pages
+@import "./pages/home";
+@import "./pages/about";
+@import "./pages/projects";
+@import "./pages/contact";
+
+body {
+    @extend %body;
+}
+
+.load {
+    @extend %load;
+}
+.pages {
+    @extend %pages;
+}
+.navbar {
+    @extend %navbar;
+}
+
+.home {
+    @extend %home;
+}
+.about {
+    @extend %about;
+}
+.projects {
+    @extend %projects;
+}
+.contact {
+    @extend %contact;
+}
+
+main {
+    display: none;
+}
