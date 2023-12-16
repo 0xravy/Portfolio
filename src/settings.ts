@@ -28,7 +28,7 @@ const languages: Pages[] = [
         home: {
             page: "home",
             text: [
-                "Welcome to my website. hi i am aravan.",
+                "Welcome to my website. hi i am ravy.",
                 "i am Fullstack developer. i am 18 years old.",
                 "and i have 4+ years in programming",
                 "and i use archlinux for programming",
@@ -63,7 +63,7 @@ const languages: Pages[] = [
         home: {
             page: "المنزل",
             text: [
-                "Welcome to my website. hi i am aravan.",
+                "Welcome to my website. hi i am ravy.",
                 "i am Fullstack developer. i am 18 years old.",
                 "and i have 4+ years in programming",
                 "and i use archlinux for programming",

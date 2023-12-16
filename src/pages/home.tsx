@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar } from "../components/navbar";
 import { MobileNav } from "../components/mobile_nav";
 
@@ -33,7 +31,7 @@ export const Home = ({ id, ThemeSettings }: Pops) => {
                         <span className="text-light-red dark:text-dark-red">
                             Welcome
                         </span>{" "}
-                        to my website. hi i am aravan. <br /> i am{" "}
+                        to my website. hi i am ravy. <br /> i am{" "}
                         <span className="text-light-blue dark:text-dark-blue">
                             Fullstack
                         </span>{" "}
@@ -49,7 +47,7 @@ export const Home = ({ id, ThemeSettings }: Pops) => {
                         <span className="text-light-red dark:text-dark-red">
                             Welcome
                         </span>{" "}
-                        to my website. hi i am aravan. i am{" "}
+                        to my website. hi i am ravy. i am{" "}
                         <span className="text-light-blue dark:text-dark-blue">
                             Fullstack
                         </span>{" "}

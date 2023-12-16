@@ -1,2 +1,8 @@
 this is my portfolio
-link: https://www.aravan.repl.co
+link: https://www.ravy.repl.co
+
+
+```
+TOKE=...
+PORT=...
+```

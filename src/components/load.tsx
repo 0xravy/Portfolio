@@ -41,7 +41,7 @@ export const Load = ({ setMain }: { setMain: (lala: string) => void }) => {
             clearInterval(mores);
             textElement.style.color = "#fff";
             topText.current!.style.opacity = '1';
-            textElement.innerHTML = "[aravan@dev]";
+            textElement.innerHTML = "[ravy@dev]";
         }, time)
 
         setTimeout(() => load.current!.onclick = () => {

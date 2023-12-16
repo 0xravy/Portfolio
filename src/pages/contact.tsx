@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef } from "react";
 import { Title } from "../components/titile";
 
@@ -14,42 +12,30 @@ export const Contact = ({ id, ThemeSettings }: Pops) => {
     const name = useRef<HTMLInputElement>(null);
     const message = useRef<HTMLTextAreaElement>(null);
 
+
+    const sendMessage = async (text: string) => {
+        try {
+            await fetch(`http://localhost:3003/api/messages?message=${text}`);
+
+            setTimeout(() => {
+                name.current!.value = "";
+                message.current!.value = "";
+            }, 200);
+
+        } catch (error) {
+            console.error('[ sendMessageError ]', error);
+        }
+    };
+
+
+
+
     const submit = () => {
         const msg = `[ ${name.current!.value} ]: ${message.current!.value}`;
-        console.log(msg);
-
-        const webHookURL =
-            "https://discord.com/api/webhooks/1136646035482091550/Mf3YLzcH8irnt4mknlFmIzHk3myoQwZDsF7EoezW0g53hTfnIK60XahUC8HL0PPdez0_";
-
-        const exampleEmbed = {
-            color: 0x0099ff,
-            description: msg,
-            thumbnail: {
-                url: "https://rustacean.net/more-crabby-things/rustdocs.png",
-            },
-            timestamp: new Date().toISOString(),
-            footer: {
-                text: "",
-                icon_url:
-                    "https://rustacean.net/more-crabby-things/rustdocs.png",
-            },
-        };
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", webHookURL, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(
-            JSON.stringify({
-                content: "🙦━━━━━{ 📪 New Email 🦀 }━━━━━🙤",
-                username: "Email",
-                embeds: [exampleEmbed],
-            })
-        );
-        setTimeout(() => {
-            // document.location.reload();
-            name.current!.value = "";
-            message.current!.value = "";
-        }, 500);
+        sendMessage(msg);
     };
+
+
     return (
         <section id={id} className="pages unshow">
             <div className="contact">

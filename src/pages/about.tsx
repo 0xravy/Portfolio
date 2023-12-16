@@ -1,5 +1,3 @@
-"use client";
-
 import { Title } from "../components/titile";
 import { useRef, useEffect } from "react";
 import TypeIt from "typeit-react";
