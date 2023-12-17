@@ -4,8 +4,12 @@ import { Projects } from "./pages/projects";
 import { Contact } from "./pages/contact";
 import { useEffect, useState } from "react";
 import { Load } from "./components/load";
+import settings from "../settings.json";
+
+export const serverLink = `http://localhost:${settings.server.port}`;
 
 export default function App() {
+
     const [mainDisplay, setMainDisplay] = useState("none");
     const setMain = (lala: string) => {
         setMainDisplay(lala);

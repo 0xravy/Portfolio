@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Title } from "../components/titile";
+import { serverLink } from "../App";
 
 interface Pops {
     id: string;
@@ -15,7 +16,7 @@ export const Contact = ({ id, ThemeSettings }: Pops) => {
 
     const sendMessage = async (text: string) => {
         try {
-            await fetch(`http://localhost:3003/api/messages?message=${text}`);
+            await fetch(`${serverLink}/api/messages?message=${text}`);
 
             setTimeout(() => {
                 name.current!.value = "";

@@ -23,6 +23,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Title } from "../components/titile";
 import { useEffect, useState } from "react";
+import { serverLink } from "../App";
 
 
 interface Pops {
@@ -44,7 +45,7 @@ export const Projects = ({ id }: Pops) => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`http://localhost:3003/api/data`);
+            const response = await fetch(`${serverLink}/api/data`);
             const result = await response.json();
             setCards(result);
         } catch (error) {

@@ -2,6 +2,7 @@ import express from "express";
 import { config } from "dotenv"
 import { Client, GatewayIntentBits } from 'discord.js';
 import cors from "cors"
+import settings from "../settings.json";
 config()
 
 const botSettings = {
@@ -13,7 +14,7 @@ const botSettings = {
 }
 
 const server = express();
-const PORT = process.env.PORT; // 3003
+const PORT = settings.server.port; // 3003
 
 
 const bot = new Client({

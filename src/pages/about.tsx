@@ -25,7 +25,11 @@ And I continue until now is that the computer teacher said that the programmerâ€
 
     useEffect(() => {
         const newLALA: HTMLDivElement = document.createElement("div");
-        newLALA.innerHTML = `<marquee direction="down" className="w-full h-full" behavior="alternate"><marquee behavior="alternate">Coming Soon...</marquee></marquee>`;
+        newLALA.innerHTML = `<marquee direction="down" className="w-full h-full" behavior="alternate"><marquee behavior="alternate">
+          <p>
+            Coming Soon...
+          </p>
+        </marquee></marquee>`;
         if (screen.current!.children.length === 0) { screen.current!.appendChild(newLALA); }
     });
 
