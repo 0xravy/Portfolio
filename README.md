@@ -4,7 +4,6 @@ link: https://www.ravy.repl.co
 create ".env" file and enter this 
 ```
 TOKE=...
-PORT=...
 ```
 
 installations:
