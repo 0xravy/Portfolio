@@ -6,7 +6,6 @@
 
         .card {
             @apply w-[3rem] h-[25rem] rounded-md zbg-theme zfg-theme;
-            font-family: "Roboto Condensed", sans-serif;
 
             &:hover {
                 transition: 0.5s all;

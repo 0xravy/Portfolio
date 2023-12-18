@@ -8,9 +8,12 @@ config()
 const botSettings = {
     channels_id: {
         web_emails: "1136646011004129310",
-        projects: "1184159567848951939"
+        //------------------------------------
+        projects: "1184159567848951939",
+        links: "1185923234844115075"
     },
-    projects: []
+    projects: [],
+    links: []
 }
 
 const server = express();
@@ -29,10 +32,11 @@ const bot = new Client({
 
 const channel = (id => bot.channels.cache.get(id))
 
-async function updateProjects() {
-    botSettings.projects = []; // remove all projects
+async function update(arrData, channelID) {
 
-    const messages = await channel(botSettings.channels_id.projects).messages.fetch(); // all messages in channel
+    arrData = []; // remove all data
+
+    const messages = await channel(channelID).messages.fetch(); // all messages in channel
 
     let i = 1;
     await messages.map((message) => {
@@ -40,13 +44,20 @@ async function updateProjects() {
             const msgArr = message.content.split("\n"); msgArr.shift(); msgArr.pop();
             var msgString = msgArr.join("");
             const msgObj = JSON.parse(msgString);
-            botSettings.projects.push(msgObj);
+            arrData.push(msgObj);
         } catch (err) {
             console.log(`[ there is error in messages loop in message number ${i} ]:\n`, err);
             console.log(msgString);
         }
         i++;
     });
+
+    return arrData
+}
+
+async function updateFunctions() {
+    botSettings.projects = await update(botSettings.projects, botSettings.channels_id.projects);
+    botSettings.links = await update(botSettings.links, botSettings.channels_id.links);
 }
 
 
@@ -58,7 +69,7 @@ function runServer() {
     })
 
     server.get('/api/data', (req, res) => {
-        res.json(botSettings.projects);
+        res.json(botSettings);
     });
 
     server.get('/api/messages', (req, res) => {
@@ -97,7 +108,7 @@ function runServer() {
 
     server.listen(PORT, () => {
         console.log(`Server running on http://localhost:${PORT}`);
-        updateProjects()
+        updateFunctions();
     });
 }
 
@@ -113,12 +124,11 @@ bot.on('messageCreate', async (message) => {
     if (message.content == "ping") {
         message.reply("Pong!");
     }
-    if (message.content == "update projects") {
-        updateProjects().then(() => {
-            const projects = botSettings.projects
-            message.reply(`تم تحديث المشاريع في الموقع الان يوجد ${projects.length} مشاريع`);
-            console.log(projects);
-        })
+    if (message.content == "update" || message.content == "تحديث") {
+        updateFunctions()
+            .then(() => {
+                message.reply(`\`\`\`تم تحديث المشاريع في الموقع الان يوجد [ ${botSettings.projects.length} ] مشاريع\nتم تحديث روابط السوشيل ميديا في الموقع الان يوجد [ ${botSettings.links.length} ] روابط\`\`\``);
+            });
     }
 });
 

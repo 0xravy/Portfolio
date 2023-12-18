@@ -6,9 +6,7 @@
     }
 
     .content {
-        @apply flex flex-row justify-start items-center gap-5 w-[90%] h-[9rem] text-[1rem] sm:text-[1.5rem];
-        font-family: 'Roboto Condensed', sans-serif;
-    
+        @apply flex flex-row justify-start items-center gap-5 w-[90%] h-[9rem] text-[1rem] sm:text-[1.5rem];    
     }
 
     .img {
@@ -34,7 +32,6 @@
 
                 div {
                     @apply w-full h-full relative  flex justify-center items-center p-0 text-[1rem] sm:text-[1.5rem];
-                    font-family: 'Roboto', sans-serif;
                     font-weight: 1000;
 
                     marquee {

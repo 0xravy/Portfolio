@@ -1,9 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Roboto:ital,wght@1,300&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url("https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Ek+Mukta:200);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  font-family: "Noto Serif Georgian", "Noto Sans Arabic", sans-serif, serif;
+  font-weight: 700;
+}
+
 .bg-theme {
   @apply bg-light-bg  dark:bg-dark-bg;
 }
@@ -417,7 +423,6 @@ html {
 }
 .about .content {
   @apply flex flex-row justify-start items-center gap-5 w-[90%] h-[9rem] text-[1rem] sm:text-[1.5rem];
-  font-family: "Roboto Condensed", sans-serif;
 }
 .about .img {
   animation: about-img 1s linear;
@@ -441,7 +446,6 @@ html {
 }
 .about .img .lala .screen div {
   @apply w-full h-full relative  flex justify-center items-center p-0 text-[1rem] sm:text-[1.5rem];
-  font-family: "Roboto", sans-serif;
   font-weight: 1000;
 }
 .about .img .lala .screen div marquee {
@@ -471,7 +475,6 @@ html {
 }
 .projects .cards .card {
   @apply w-[3rem] h-[25rem] rounded-md zbg-theme zfg-theme;
-  font-family: "Roboto Condensed", sans-serif;
 }
 .projects .cards .card:hover {
   transition: 0.5s all;
@@ -569,7 +572,6 @@ html {
 }
 .contact .form {
   @apply w-[90%] sm:w-[24rem] gap-10 flex flex-col justify-start items-start relative;
-  font-family: "Roboto Condensed", sans-serif;
 }
 .contact .form span {
   @apply pr-2;

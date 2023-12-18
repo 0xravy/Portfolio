@@ -30,8 +30,8 @@ export const Home = ({ id, ThemeSettings }: Pops) => {
                     <p className="hidden sm:block">
                         <span className="text-light-red dark:text-dark-red">
                             Welcome
-                        </span>{" "}
-                        to my website. hi i am ravy. <br /> i am{" "}
+                        </span>{" "} to my website. hi i am ravy. <br />
+                        i am{" "}
                         <span className="text-light-blue dark:text-dark-blue">
                             Fullstack
                         </span>{" "}
@@ -40,8 +40,8 @@ export const Home = ({ id, ThemeSettings }: Pops) => {
                         <span className="text-light-green dark:text-dark-green">
                             {new Date().getFullYear() - 2019}
                         </span>{" "}
-                        years in programming <br /> and i use archlinux for
-                        programming
+                        years in programming,<br />
+                        and i use archlinux for programming.
                     </p>
                     <p className="sm:hidden block">
                         <span className="text-light-red dark:text-dark-red">
@@ -80,7 +80,7 @@ export const Home = ({ id, ThemeSettings }: Pops) => {
                             ))}
                         </ul>
                         <img
-                            src={`/logo_${ThemeSettings.Get()}.svg`}
+                            src={`/logo_${ThemeSettings.Get() ?? "light"}.svg`}
                             alt=""
                             width={500}
                             height={500}

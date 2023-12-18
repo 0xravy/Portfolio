@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Title } from "../components/titile";
 import { serverLink } from "../App";
 
@@ -9,9 +9,29 @@ interface Pops {
         Get: () => string | null;
     };
 }
+
+
+interface Link {
+    image: string;
+    title: string;
+    color?: string;
+    url: string;
+}
+
 export const Contact = ({ id, ThemeSettings }: Pops) => {
     const name = useRef<HTMLInputElement>(null);
     const message = useRef<HTMLTextAreaElement>(null);
+    const [links, setLinks] = useState<Link[]>([]);
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`${serverLink}/api/data`);
+            const result = await response.json();
+            setLinks(result.links);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
 
     const sendMessage = async (text: string) => {
@@ -28,13 +48,15 @@ export const Contact = ({ id, ThemeSettings }: Pops) => {
         }
     };
 
-
-
-
     const submit = () => {
         const msg = `[ ${name.current!.value} ]: ${message.current!.value}`;
         sendMessage(msg);
     };
+
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
 
     return (
@@ -42,7 +64,21 @@ export const Contact = ({ id, ThemeSettings }: Pops) => {
             <div className="contact">
                 <Title title="Contact" />
                 <div className="links">
-                    <Link
+
+                    {links.map(link => {
+                        console.log(link.image);
+
+                        return (
+                            <a target="_blank" rel="noreferrer" href={link.url}>
+                                <img src={link.image.replace("$theme", ThemeSettings.Get() ?? "light")} alt="" width={10} height={10} />
+                                {link.color && (
+                                    <span style={{ color: `#${link.color}` }}>{link.title}</span>
+                                )}
+                                {!link.color && <span>{link.title}</span>}
+                            </a>)
+                    })}
+
+                    {/* { <Link
                         title="github"
                         src={`/github_${ThemeSettings.Get()}.svg`}
                         link="https://github.com/aravns"
@@ -70,7 +106,9 @@ export const Contact = ({ id, ThemeSettings }: Pops) => {
                         src="/instagram.svg"
                         link="https://www.instagram.com/aravns_"
                         hex_color="833AB4"
-                    />
+                    /> */}
+
+
                 </div>
                 <div className="form">
                     <div className="name">
@@ -97,24 +135,5 @@ export const Contact = ({ id, ThemeSettings }: Pops) => {
                 </div>
             </div>
         </section>
-    );
-};
-
-interface Link {
-    title: string;
-    src: string;
-    link: string;
-    hex_color?: string;
-}
-
-const Link = ({ title, src, link, hex_color }: Link) => {
-    return (
-        <a target="_blank" rel="noreferrer" href={link}>
-            <img src={src} alt="" width={10} height={10} />
-            {hex_color && (
-                <span style={{ color: `#${hex_color}` }}>{title}</span>
-            )}
-            {!hex_color && <span>{title}</span>}
-        </a>
     );
 };

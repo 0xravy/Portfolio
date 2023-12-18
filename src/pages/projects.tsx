@@ -47,7 +47,7 @@ export const Projects = ({ id }: Pops) => {
         try {
             const response = await fetch(`${serverLink}/api/data`);
             const result = await response.json();
-            setCards(result);
+            setCards(result.projects);
         } catch (error) {
             console.error('Error fetching data:', error);
         }

@@ -1,11 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Roboto:ital,wght@1,300&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed); // font-family: 'Roboto Condensed', sans-serif
-// font-family: 'Fira Code', monospace;
-// font-family: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300&display=swap'); // font-family: 'Noto Emoji', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@300&display=swap'); // font-family: 'Noto Serif Georgian', serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic&display=swap');// font-family: 'Noto Sans Arabic', sans-serif;
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family:'Noto Serif Georgian', 'Noto Sans Arabic', sans-serif, serif;
+    font-weight: 700;
+}
 
 // bg theme color
 .bg-theme {

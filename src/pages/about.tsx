@@ -8,33 +8,50 @@ interface Pops {
 
 export const About = ({ id }: Pops) => {
     const about_text = `
-Hello
-I am Abdul Rahman from the Kingdom of Saudi Arabia
-
-I started learning programming when I was fifteen years old
-
-At that time, I did not have a computer, so I started using my father's phone
-
-Which was iPhone 6 the reason I got into programming at that time
-
-And I continue until now is that the computer teacher said that the programmer’s profession is the future and it is fun and brings high income 🙂 I thought that I would become rich if I learned it, so I started in 04/07/2019 following explanations of the Python language most of the day and continued and even learned until I reached the stage I am in now
+    I am AbdulRahman from Saudi Arabia, and I start learn programming since 2015. My primary expertise lies in websites and design, while I also have experience in applications and bots. I have proficiency in several programming languages, such as Python, JavaScript, C#, C++, and Rust.
+    <br /><br />
+    However, my main focus is on JavaScript and Rust, as these are the languages I am most adept at. I also manage a YouTube channel where I share my thoughts and insights. Feel free to check out my latest video, which you can find on old TV.
     `
 
 
     const screen = useRef<HTMLDivElement>(null);
 
+    const loadVideo = async (iframe: any) => {
+        const cid = "UCS9HzA5yTy1zLEjogLNBBVA"; // channel id
+        const channelURL = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${cid}`);
+        const reqURL = `https://api.rss2json.com/v1/api.json?rss_url=${channelURL}`;
+
+        await fetch(reqURL)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const videoNumber = 0; // 0 mean last video
+                const link = result.items[videoNumber].link;
+                const id = link.substr(link.indexOf("=") + 1);
+                iframe.setAttribute("src", `https://youtube.com/embed/${id}?controls=1&autoplay=0`);
+            })
+            .catch(error => console.log('error', error));
+    }
+
+
     useEffect(() => {
-        const newLALA: HTMLDivElement = document.createElement("div");
-        newLALA.innerHTML = `<marquee direction="down" className="w-full h-full" behavior="alternate"><marquee behavior="alternate">
-          <p>
-            Coming Soon...
-          </p>
-        </marquee></marquee>`;
-        if (screen.current!.children.length === 0) { screen.current!.appendChild(newLALA); }
+        //     const newLALA: HTMLDivElement = document.createElement("div");
+        //     newLALA.innerHTML = `
+        //     <marquee style="background: blue;" direction="down" className="w-full h-full relative" behavior="alternate">
+        //             <div className="absolute left-0">
+        //                 <p className="text-[#fff]">
+        //                     Coming Soon...
+        //                 </p>
+        //             </div>
+        //     </marquee>`;
+        //     if (screen.current!.children.length === 0) { screen.current!.appendChild(newLALA); }
+
+        const iframe = document.getElementById("iframe");
+        loadVideo(iframe);
     });
 
     return (
-        <section id={id} className="pages unshow">
+        <section id={id} className="pages unsho">
             <div className="about">
                 <Title title="About" />
                 <div className="two-div content">
@@ -49,7 +66,11 @@ And I continue until now is that the computer teacher said that the programmer�
                 </div>
                 <div className="two-div img">
                     <div className="lala">
-                        <div ref={screen} className="screen"></div>
+                        <div ref={screen} className="screen">
+                            {
+                                (<iframe id="iframe" className="w-full h-full" />)
+                            }
+                        </div>
                         <img src="/TV.svg" alt="" width={500} height={500} />
                     </div>
                 </div>

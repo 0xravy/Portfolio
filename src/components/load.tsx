@@ -59,10 +59,10 @@ export const Load = ({ setMain }: { setMain: (lala: string) => void }) => {
 
     return (
         <div ref={load} className="load lanim">
-            <div ref={topText}>
+            <div ref={topText} style={{ fontFamily: "'Noto Emoji', sans-serif"}}>
                 <TypeIt
                     options={{
-                        strings: ["Don't click me 0_0"],
+                        strings: ["click me 🐧"],
                         speed: 150,
                         loopDelay: 1000,
                         startDelay: 1500,
