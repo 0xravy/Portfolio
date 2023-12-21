@@ -30,18 +30,18 @@ export const Home = ({ id, ThemeSettings }: Pops) => {
                     <p className="hidden sm:block">
                         <span className="text-light-red dark:text-dark-red">
                             Welcome
-                        </span>{" "} to my website. hi i am ravy. <br />
+                        </span>{" "} to my website. Hi, I am Ravy. <br />
                         i am{" "}
                         <span className="text-light-blue dark:text-dark-blue">
                             Fullstack
                         </span>{" "}
-                        developer. i am {new Date().getFullYear() - 2005} years
-                        old. <br /> and i have more then{" "}
+                        developer, {new Date().getFullYear() - 2005} years
+                        old. <br />  with over{" "}
                         <span className="text-light-green dark:text-dark-green">
                             {new Date().getFullYear() - 2019}
                         </span>{" "}
-                        years in programming,<br />
-                        and i use archlinux for programming.
+                        years of experience in programming.<br />
+                        I use Arch Linux BTW
                     </p>
                     <p className="sm:hidden block">
                         <span className="text-light-red dark:text-dark-red">

@@ -8,10 +8,9 @@ interface Pops {
 
 export const About = ({ id }: Pops) => {
     const about_text = `
-    I am AbdulRahman from Saudi Arabia, and I start learn programming since 2015. My primary expertise lies in websites and design, while I also have experience in applications and bots. I have proficiency in several programming languages, such as Python, JavaScript, C#, C++, and Rust.
-    <br /><br />
-    However, my main focus is on JavaScript and Rust, as these are the languages I am most adept at. I also manage a YouTube channel where I share my thoughts and insights. Feel free to check out my latest video, which you can find on old TV.
-    `
+\tI am AbdulRahman from Saudi Arabia, and I started learning programming in 2015. My primary expertise lies in websites and design, while I also have experience in applications and bots. I am proficient in several programming languages, such as Python, JavaScript, C#, C/C++, and Rust.
+<br><br>
+However, my main focus is on JavaScript and Rust, as these are the languages I am most adept at. I also manage a YouTube channel where I share my thoughts and insights. Feel free to check out my latest video, which you can find it on old TV.`;
 
 
     const screen = useRef<HTMLDivElement>(null);
@@ -59,10 +58,10 @@ export const About = ({ id }: Pops) => {
                         options={{
                             strings: about_text,
                             speed: 30,
-                            loopDelay: 1000,
                             waitUntilVisible: true,
                         }}
                     />
+                    
                 </div>
                 <div className="two-div img">
                     <div className="lala">
