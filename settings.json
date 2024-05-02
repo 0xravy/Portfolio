@@ -1,8 +1,0 @@
-{
-    "server": {
-        "port": 3002
-    },
-    "website": {
-        "port": 3001
-    }
-}
